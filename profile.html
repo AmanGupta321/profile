@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid + Media Queries</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+body{
+    
+    margin: 0%;
+    padding: 0%;
+}
+
+/* GRID AREA CSS */
+.container::before{
+    /* background: url(./rodion-kutsaev-pVoEPpLw818-unsplash.jpg) no-repeat center/cover; */
+    background-color: #ff76983f;
+    content: "";
+    position: absolute;
+    /* background: url('../Image/food.jpg') no-repeat center/cover; */
+    height: 268vh;
+    width:100%;
+    top:0px;
+    left:0px;
+    z-index: -1;
+    opacity: 0.89;
+}
+.container {
+            display: grid;
+            /* grid-gap: 1rem; */
+            /* align-content: center; */
+            grid-template-areas:
+                'navbar navbar'
+                'section-1 section-1'
+                'section-2 section-2'
+                'about about'
+                'social social'
+                'skill skill'
+                'gallery gallery'
+                'footer footer';
+        }
+
+        .bdr {
+            border: 2px solid black;
+            padding: 10px 23px;
+            background-color: wheat;
+        }
+
+        .bdr1{
+            border: 2px solid rgb(15, 14, 14);
+        }
+
+        nav {
+            grid-area: navbar;
+            height: 67px;
+            justify-items: left;
+            width: 98.5vw;
+        }
+
+        #a1{
+            grid-area: section-1;
+            justify-self: center;
+            height: 147px;
+            
+        }
+
+        #a2{
+            grid-area: section-2;
+            height: 0px;
+            background-size: contain;
+            justify-self: center;
+        }
+
+        #about-me-container {
+            grid-area: about;
+            background-size: cover;
+            justify-self: center;
+            /* margin-top: -250px; */
+            /* width: 850px; */
+            height: 315px;
+        }
+
+        #skills-section{
+            grid-area: skill;
+            /* width: 950px; */
+            /* height: 800px; */
+            /* justify-self: center; */
+        }
+        
+        #gallery-section{
+            grid-area: gallery;
+            border: 2px solid #fff;
+            margin-top: 65px;
+            height: 600px;
+        }
+
+        footer {
+            grid-area: footer;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        
+
+        #social-sites{
+            grid-area: social;
+
+        }
+        
+        
+/* NAVBAR SECTION */
+        table {
+            /* border: 2px solid black; */
+            margin: 0px 0 0 0;
+            padding: 0%;
+        }
+
+        #line1 {
+            animation-name: line1;
+            animation-duration: 3s;
+            opacity: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            transform: rotate(90deg);
+            width: 5px;
+            font-size: 51px;
+            position: absolute;
+            top: -15px;
+            opacity: 0;
+            color: rgb(238, 236, 235);
+        }
+
+        @keyframes line1 {
+            0% {
+                left: -550px;
+            }
+
+            100% {
+                left: 181px;
+                opacity: 1;
+            }
+        }
+
+        #td1 {
+            display: inline-block;
+            padding: 0%;
+            position: relative;
+            margin-left: -3px;
+            top: -2px;
+        }
+
+        #td2 {
+            display: inline-block;
+            padding: 0%;
+            position: relative;
+            margin-left: -3px;
+            font-family: 'Micedge';
+            top: -14px;
+        }
+
+        #td1,
+        #td2 {
+            animation-name: text;
+            font-weight: bold;
+            animation-delay: 3s;
+            animation-duration: 2s;
+            /* color: rgb(153 52 249 / 87%);
+            text-shadow: -0.5px -0.5px 0 #f7f1f1, 0.5px 0.5px 0 #eeeef3; */
+            text-shadow: -1px -1px 0 #221d1d, 1px 2px 0 #232325;
+            color: wheat;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            letter-spacing: 2px;
+            opacity: 0;
+            position: relative;
+        }
+
+        @keyframes text {
+            0% {
+                left: -14px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 0px;
+            }
+        }
+
+        #line2 {
+            animation-name: line2;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            position: relative;
+            color: rgb(255, 252, 249);
+            opacity: 0;
+            font-size: 50px;
+            /* display: inline-block; */
+        }
+
+        @keyframes line2 {
+            0% {
+                top: -200px;
+            }
+
+            100% {
+                top: -18px;
+                opacity: 1;
+            }
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: rgba(32, 5, 5, 0.32);
+            position: absolute;
+            top: 0px;
+            height: 10vh;
+            width: 100vw;
+            
+            opacity: .9;
+        }
+
+        #navbar {
+            display: grid;
+            position: fixed;
+            z-index: 1;
+            justify-content: center;
+            grid-area: navbar;
+            align-items: center;
+            grid-template-areas:
+                'logo a11 a12 a13 a14';
+        }
+
+        .nav-item {
+            /* position: sticky; */
+            /* border: 3px solid black; */
+            margin: 20px 25px 0 35px;
+            z-index: 1;
+        }
+
+        #logo {
+            margin-left: 155px;
+            grid-area: logo;
+            height: 35px;
+            width: 85px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        #a11 {
+            grid-area: a11;
+            text-shadow: -.5px .5px 0 #181717, .5px .5px 0 #d0d0d8;
+            font-weight: bold;
+        }
+
+        #a11:hover {
+            /* border: 2px solid black; */
+            font-size: 19px;
+            padding: 6px;
+            background-color: rgb(144, 148, 155);
+            color: whitesmoke;
+            border-radius: 10px;
+        }
+
+        #a12 {
+            grid-area: a12;
+            font-weight: bold;
+            text-shadow: -.5px .5px 0 #181717, .5px .5px 0 #d0d0d8;
+        }
+
+        #a12:hover {
+            /* border: 2px solid black; */
+            font-size: 19px;
+            padding: 6px;
+            background-color: rgb(144, 148, 155);
+            color: whitesmoke;
+            border-radius: 10px;
+        }
+
+        #a13 {
+            grid-area: a13;
+            font-weight: bold;
+            text-shadow: -.5px .5px 0 #181717, .5px .5px 0 #d0d0d8;
+        }
+
+        #a13:hover {
+            /* border: 2px solid black; */
+            font-size: 19px;
+            padding: 6px;
+            background-color: rgb(144, 148, 155);
+            color: whitesmoke;
+            border-radius: 10px;
+        }
+
+        #a14 {
+            grid-area: a14;
+            font-weight: bold;
+            text-shadow: -.5px .5px 0 #181717, .5px .5px 0 #d0d0d8;
+        }
+
+        #a14:hover {
+            /* border: 2px solid black; */
+            font-size: 19px;
+            padding: 6px;
+            color: whitesmoke;
+            background-color: rgb(144, 148, 155);
+            border-radius: 10px;
+        }
+
+        td {
+            /* border: 3px solid black; */
+            margin: 0%;
+            padding: 0%;
+        }
+    
+
+        
+/* LOGO IMG */
+/* img{
+    margin: 0%;
+    padding: 0%;
+} */
+        .logoimg{
+            text-align: center;
+            /* animation-name: logo; */
+            animation-iteration-count: 1;
+            animation-timing-function: ease;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+            /* position: relative; */
+            z-index: -1;
+            outline: none;
+        }
+        .logoimg > img{
+            border-radius: 81px 81px 75px 75px;
+            /* margin-top: -50px; */
+            /* margin-left: -85px; */
+            height: 175px;
+            width: 140px;
+            border: 6px solid rgb(241, 211, 151);
+        }
+
+        @keyframes logo {
+            100%{
+                top: -11px;
+            }
+
+            0%{
+                opacity: 0;
+                top: -250px;
+            }
+        }
+
+
+        
+
+
+/* TYPE WRITER CSS */
+.typed-text-container{
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+    height: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typed-text-container p{
+    font-size: 3rem;
+    /* font-weight: bolder; */
+    letter-spacing: 0.1 rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.typed-text{
+    /* font-weight: 800; */
+    font-family: 'HP Simplified';
+    color: #464442;
+}
+
+.cursor{
+    display: inline-block;
+    width: 3px;
+    background-color: #ccc;
+    animation: blink 1s infinite;
+}
+
+.cursor.typing{
+    animation: none;
+}
+@keyframes blink{
+    0%{
+        background-color: #ccc;
+    }
+    49%{
+        background-color: #ccc;
+    }
+    50%{
+        background-color: transparent;
+    }
+    99%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: #ccc;
+    }
+}
+
+
+
+
+/* ABOUT ME */
+.about-me-container{
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'MicEdge';
+    color: #000;
+    display: block;
+}
+section{
+    padding: 0%;
+    margin: 0%;
+}
+pre{
+    padding: 0%;
+    margin: 0%;
+}
+.about-me-typed-text{
+    font-size: 27px;
+    /* font-weight: bold; */
+    font-family: 'Comic Sans MS';
+    /* font-family: 'HP Simplified'; */
+    text-align: center;
+    color: #0f0d0c;
+    /* background-color: rgb(231, 210, 181); */
+}
+
+.about-me-cursor{
+    display: inline-block;
+    width: 3px;
+    background-color: #ccc;
+    animation: aboutblink 1s infinite;
+}
+
+.about-me-cursor.typing{
+    animation: none;
+}
+@keyframes aboutblink{
+    0%{
+        background-color: #ccc;
+    }
+    49%{
+        background-color: #ccc;
+    }
+    50%{
+        background-color: transparent;
+    }
+    99%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: #ccc;
+    }
+}
+
+
+
+
+
+/* SOCIAL SITES */
+#social-sites > h1{
+    text-align: center;
+}
+
+#socialSitesIcon{
+    text-align: center;
+}
+
+#socialSitesIcon > svg {
+        margin: -5px 55px 0 15px;
+    }
+#social-a-tag{
+        position: absolute;
+        display: inline-block;
+        height: 74px;
+        margin-top: -5px;
+        margin-left: 10px;
+        width: 85px;
+        z-index: 1;
+        cursor: pointer;
+        /* border: 2px solid black; */
+        border-radius: 23%;
+    }
+#linkedin{
+    animation-name: linkedin;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 6s;
+    animation-duration: 4s;
+    position: relative;
+    z-index: -1;
+    opacity: 0;
+}
+
+@keyframes linkedin{
+    0%{
+        bottom: -105px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 1px;
+    }
+}
+
+#stack-overflow{
+    animation-name: stack-overflow;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 6s;
+    animation-duration: 4s;
+    position: relative;
+    z-index: -1;
+    opacity: 0;
+}
+@keyframes stack-overflow{
+    0%{
+        top: -205px;
+    }
+    100%{
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+#github{
+    animation-name: github;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 6s;
+    animation-duration: 4s;
+    position: relative;
+    opacity: 0;
+    z-index: -1;
+}
+@keyframes github{
+    0%{
+        left: -235px;
+    }
+    100%{
+        left: 1px;
+        opacity: 1;
+    }
+}
+
+#sololearn{
+    animation-name: sololearn;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: -1;
+    animation-delay: 6s;
+    animation-duration: 4s;
+    position: relative;
+    opacity: 0;
+}
+@keyframes sololearn{
+    0%{
+        right: -235px;
+    }
+    100%{
+        opacity: 1;
+        right: 1px;
+    }
+}
+/* SKILLS SECTION */
+h3{
+    margin: 0px;
+    padding: 0 0 15px 0;
+    text-shadow: -1px -1px 0 #221d1d, 2px 2px 0 #232325;
+    color: wheat;
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    font-size: 51px;
+    
+}
+#neumorphic-body{
+            /* padding: 3rem 4rem 0 0; */
+            /* background-color: #ff76983f; */
+            color: #999;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 450px;
+            border-radius: 34px;
+            max-width: 450px;
+            font-family: "Arial", sans-serif;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 2rem 0 3rem 0;
+            flex: 1 1 50% 20%;
+        }
+
+        .neumorphic {
+            box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2),
+                -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
+            font-size: 5rem;
+            width: 110px;
+            height: 110px;
+            border-radius: 40px;
+            overflow: hidden;
+            padding: 1.3rem;
+            display: flex;
+        }
+
+        .neumorphic--pressed:hover {
+            box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+                inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+        }
+
+        .variation2 {
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .variation2.pressed {
+            color: #5ab9ea;
+        }
+
+        .skill-img{
+            height: 150px;
+        }
+
+
+
+/* MY GALLERY */
+        .imgg-1{
+            width: 85vw;
+            height: 86vh;
+
+        }
+        .imgg-2{
+            width: 85vw;
+            height: 86vh;
+        }
+        .imgg-3{
+            height: 86vh;
+            width: 85vw;
+        }
+        
+
+
+/* Responsive CSS */
+@media (max-width: 1180px){
+.about-me-typed-text{
+    font-size: 18px;
+}
+#logo{
+    margin-left: 55px;
+}
+.nav-item{
+    margin-left: 4px;
+}
+
+@keyframes line1 {
+            0% {
+                left: -550px;
+            }
+
+            100% {
+                left: 78px;
+                opacity: 1;
+            }
+        }
+        #td1{
+            top: 3px;
+        }
+
+        #td2 {
+            top: -10px;
+        }
+        #navbar::before{
+            /* left: -155px; */
+            height: 7vh;    
+            width: 103vw;
+        }
+        #github{
+            height: 7.5vh;
+        }
+        #stack-overflow{
+            height: 7.5vh;
+        }
+        #sololearn{
+            height: 7.5vh;
+        }
+        #linkedin{
+            height: 7.5vh;
+        }
+        #socialSitesIcon > svg {
+            margin: 35px 10px 0 22px;
+    }
+        #social-a-tag{
+        height: 98px;
+        margin-top: 35px;
+        margin-left: 10px;
+        width: 112px;
+        /* border: 2px solid black; */
+        /* border-radius: 23%; */
+    }
+    h3{
+        margin: -15px 0 10px 0;
+        font-size: 55px;
+        /* padding: 2px; */
+    }
+    .container::before{
+        height: 135vh;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- NAVIGATION SECTION -->
+             <nav class="bdr2">
+               <div id="navbar">
+                <div class="nav-item" id="logo">
+                    <div id="line1">|</div>
+                    <table>
+                        <tr>
+                            <td rowspan="2" id="line2">|</td>
+                            <td id="td1">Aman</td>
+                        </tr>
+                        <tr>
+                            <td id="td2">Gupta</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <a href="#navbar" class="nav-item" id="a11">Home</a>
+                <a href="#about-me-container" class="nav-item" id="a12">About Me</a>
+                <a href="#skills-section" class="nav-item" id="a13">Skills</a>
+                <a href="#" class="nav-item" id="a14">Contact Us</a>
+                </div>
+        </nav>
+        
+        <!-- PERSONAL PHOTO SECTION -->
+        <section id="a1" class="bdr2">
+            <div class="logoimg">
+                <img src="https://www.dropbox.com/s/9t7f72b9pt58ltt/myprofileimg.jpg?dl=0" alt="My Photo">
+            </div>
+        </section>
+
+        <!-- MY TYPEWRITER SECTION -->
+        <section id="a2" class="bdr2">
+            <div class="typed-text-container">
+                <p><span class="typed-text"><span class="cursor typing">&nbsp;</span></span></p>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about-me-container" class="bdr2">
+            <pre class="about-me-typed-text"><span class="about-me-cursor typing">&nbsp;</span></pre>
+            <!-- <h5>hello</h5> -->
+        </section>
+
+        <!-- SOCIAL SITES -->
+        <section id="social-sites" class="bdr2">
+            <!-- <h1></h1> -->
+            <div id="socialSitesIcon">
+                <!-- GitHub Icon -->
+                <a href="https://github.com/AmanGupta321" id="social-a-tag"></a>
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height='11vh' id="github">
+                    <title>GitHub icon</title>
+                    <path style="fill: #121213;"
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+        
+                <!-- LinkedIn Icon-->
+                <a href="https://www.linkedin.com/in/aman-gupta-934711186" id="social-a-tag"></a>
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height='11vh' id="linkedin">
+                    <title>LinkedIn icon</title>
+                    <path style="fill: #0e76a8;"
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+        
+                <!-- Stack Overflow Icon -->
+                <a href="https://stackoverflow.com/users/13581672/aman-gupta" id="social-a-tag"></a>
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height='11vh' id="stack-overflow">
+                    <title>Stack Overflow icon</title>
+                    <path style="fill: #f36123;"
+                        d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H16.85v-2.137H6.111v2.137zm.259-4.852l10.48 2.189.451-2.07-10.478-2.187-.453 2.068zm1.359-5.056l9.705 4.53.903-1.95-9.706-4.53-.902 1.936v.014zm2.715-4.785l8.217 6.855 1.359-1.62-8.216-6.853-1.35 1.617-.01.001zM15.751 0l-1.746 1.294 6.405 8.604 1.746-1.294L15.749 0h.002z" />
+                </svg>
+        
+                <!-- SoloLearn Icon -->
+                <a href="https://www.sololearn.com/Profile/10739698/?ref=app" id="social-a-tag"></a>
+                <svg height="11vh" viewBox="0 0 79.375 79.375" xmlns:svg="http://www.w3.org/2000/svg" id="sololearn">
+                    <title>SoloLearn Logo</title>
+                    <g id="logo">
+                        <path style="fill:#6cb94f; stroke:none;"
+                            d="M 29.405762,53.537252 C 27.007126,52.614412 22.463365,50.155879 20.260864,48.589144 17.716505,46.779227 14.403971,43.663454 12.901736,41.667139 10.209852,38.089903 8.9663098,34.453044 8.74879,29.521457 8.6395404,27.04456 8.6876937,26.367262 9.0844544,24.800188 10.400488,19.602289 14.388677,14.598008 20.161074,10.901519 c 2.212978,-1.417132 6.843541,-3.504822 7.13262,-3.2157428 0.06551,0.065512 -0.550717,1.2308457 -1.369402,2.5896298 -1.643999,2.728574 -3.537503,6.614461 -4.392199,9.013756 -0.949664,2.66589 -1.172735,4.356644 -1.159241,8.786426 0.01421,4.663194 0.324536,6.472873 1.776452,10.35929 1.620994,4.338994 3.79359,8.160009 7.200284,12.663371 1.110594,1.468112 2.019779,2.744366 2.020414,2.836124 0.0019,0.272444 -0.473985,0.176236 -1.96424,-0.397121 z"
+                            id="path1" />
+                        <path style="fill:#ef7542; stroke:none;"
+                            d="m 24.102731,38.075546 c -0.441603,-0.955791 -1.063118,-2.700641 -1.381146,-3.877442 -0.537535,-1.989047 -0.90889,-3.369909 -0.813852,-6.889046 -0.0037,0.827379 0.28046,-5.006358 0.722268,-6.595087 0.988959,-3.556251 2.737536,-6.541474 5.565322,-9.501284 1.97631,-2.0685804 3.216351,-3.0151294 5.292891,-4.0401702 5.910678,-2.9176853 12.901118,-2.6817748 20.326464,0.6859688 2.186035,0.9914705 4.822198,2.5443864 5.898232,3.4745454 l 0.860425,0.74378 -3.546161,0.147067 c -1.950386,0.08089 -4.512431,0.147401 -5.693433,0.147809 -1.88141,6.35e-4 -2.432235,0.09889 -4.448823,0.793497 -5.201397,1.791593 -8.727459,3.95056 -12.317474,7.541846 -4.41956,4.421127 -7.16983,9.540771 -8.707558,16.209184 -0.314895,1.365549 -0.658419,2.576036 -0.763388,2.689973 -0.111002,0.120489 -0.526784,-0.519919 -0.993767,-1.530641 z"
+                            id="path2" />
+                        <path style="fill:#ea545f; stroke:none;"
+                            d="M 73.626278,44.675259 C 72.310463,41.508311 71.80967,40.419167 70.711305,38.335687 68.146924,33.471325 65.120019,29.75286 62.149926,27.818282 57.196793,24.592043 52.256642,23.295535 45.718608,23.505998 c -3.808884,0.12261 -6.404544,0.55517 -10.732786,1.788589 -2.224786,0.633998 -2.344603,0.538106 -1.243145,-0.994929 2.509777,-3.493169 7.203284,-6.682896 12.365418,-8.403591 3.813884,-1.271282 6.229678,-1.668224 10.176468,-1.672107 4.07303,-0.004 5.096666,0.244544 7.933597,1.926369 6.038525,3.579839 9.613665,10.737771 10.418607,20.859512 0.245686,3.089394 0.02122,7.383209 -0.42749,8.177549 -0.179256,0.317336 -0.272347,0.235558 -0.582999,-0.512131 z"
+                            id="path3" />
+                        <path style="fill:#eb589f; stroke:none;"
+                            d="m 50.365346,73.537 c 0.0019,-0.09176 0.827617,-1.12876 1.835139,-2.304455 4.730131,-5.519642 7.343048,-9.968608 8.441524,-14.373222 0.640775,-2.569355 0.693105,-8.998966 0.09458,-11.621619 -1.394421,-6.110197 -4.836943,-12.807103 -9.244243,-17.983284 -0.866341,-1.017479 -1.575162,-1.951344 -1.575162,-2.075256 0,-0.274683 0.822311,-0.111347 3.225395,0.640661 11.166464,3.494371 20.550052,16.007048 19.241177,25.657421 -1.08327,7.986961 -7.172343,15.49387 -16.233034,20.012877 -2.040953,1.01792 -5.068721,2.213708 -5.605177,2.213708 -0.100914,0 -0.182004,-0.07507 -0.180202,-0.166831 z"
+                            id="path4" />
+                        <path style="fill:#2fb7e9;stroke:none;"
+                            d="m 33.637274,75.358088 c -3.390749,-0.293174 -7.659919,-1.753487 -11.006661,-3.764936 -3.70299,-2.225564 -7.908052,-6.421353 -5.94067,-5.927572 1.901081,0.477142 7.323011,1.29376 9.273111,1.396662 2.688319,0.141853 5.668917,-0.244481 8.786425,-1.138862 2.623005,-0.752515 7.285937,-3.051612 9.745083,-4.804892 2.381009,-1.697572 6.18114,-5.605224 8.217654,-8.450167 1.388272,-1.939367 4.61504,-7.91931 4.61504,-8.552725 0,-0.151596 0.148489,-0.398862 0.329978,-0.549481 0.272354,-0.226036 0.364416,-0.18224 0.527219,0.250814 0.830717,2.209665 1.063424,9.643994 0.401225,12.81797 -1.886006,9.039799 -7.407384,15.72937 -14.888522,18.038587 -1.316022,0.406218 -6.226728,0.981676 -7.589721,0.889397 -0.257506,-0.01744 -1.369076,-0.109593 -2.470161,-0.204795 z"
+                            id="path5" />
+                        <path style="fill:#148e9b; stroke:none;"
+                            d="M 21.147006,64.584572 C 17.437232,63.517321 13.869148,61.219575 11.196137,58.554012 8.6649035,56.029831 6.2142663,52.432525 5.4633735,47.836863 5.1887654,46.15619 4.7644256,45.425914 4.7644256,41.485813 c 0,-3.556003 0.2557087,-4.797976 0.569391,-5.953675 0.4667705,-1.719723 1.024804,-2.781872 1.024804,-2.781872 0.5967333,0.04188 1.1876873,2.340972 2.4972108,4.812265 2.9854936,5.63413 4.0357356,7.706927 6.6341856,10.182265 5.408037,5.151811 12.266704,7.501437 19.966854,8.310946 3.787108,0.398134 9.919732,-0.211651 11.791021,-0.654304 0.777674,-0.183959 1.159555,0.451911 0,1.436349 -3.918421,3.665958 -11.451289,7.058418 -16.210399,7.815982 -2.466438,0.392612 -9.890487,0.377794 -9.890487,-0.0692 z"
+                            id="path6" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills-section" class="bdr2">
+            <h3>My Skills</h3>
+            <div id="neumorphic-body">
+                <section>
+                    <div class="neumorphic neumorphic--pressed variation2 pressed">
+                        <img class='skill-img' src="https://dl.dropbox.com/s/o9txcptbjauvtt0/HTML.png?raw=1" alt="HTML icon">
+                    </div>
+                </section>
+                <section>
+                    <div class="neumorphic neumorphic--pressed variation2 pressed">
+                        <img class='skill-img' src="https://dl.dropbox.com/s/s48tjueraoi43uw/2-CSS.png?raw=1" alt="CSS icon">
+                    </div>
+                </section>
+                <section>
+                    <div class="neumorphic neumorphic--pressed variation2 pressed">
+                        <img class='skill-img' src="https://dl.dropbox.com/s/o3qhce27stwca0v/3-JS.png?raw=1" alt="JS icon">
+                    </div>
+                </section>
+                <section>
+                    <div class="neumorphic neumorphic--pressed variation2 pressed">
+                        <img class='skill-img' src="https://dl.dropbox.com/s/3uf0e8myk4g891t/4-1-Bootstrap.png?raw=1" alt="Bootstrap">
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery-section" class="bdr2">
+            <!-- <h4>HELLO AMAN</h4> -->
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bdr2">
+            ----------------------------------------------------------------------------------------------------------
+        </footer>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+<script>
+const typedTextSpan = document.querySelector('.typed-text');
+// const heart = `${'&#x2665;'}`
+const textArray = [ 'Hello Friends','Welcome to My Portfolio','Programming is MY Passion','MY Hobby', `Its an Art which I love to learn`];
+const typingDelay = 200;
+const erasingDelay = 80;
+const newTextDelay = 900;
+let textArrayIndex = 0;
+let charIndex = 0;
+// console.log(heart);
+function type() {
+    if (charIndex < textArray[ textArrayIndex ].length)
+    {
+        typedTextSpan.textContent += textArray[ textArrayIndex ].charAt(charIndex);
+        charIndex++
+        setTimeout(type,typingDelay);
+    }
+    else
+    {
+        setTimeout(erase,newTextDelay);
+    }
+}
+
+function erase() {
+    if (charIndex > 0)
+    {
+        typedTextSpan.textContent = textArray[ textArrayIndex ].substring(0,charIndex - 1)
+        charIndex--;
+        // console.log(charIndex);
+        setTimeout(erase,erasingDelay)
+    }
+    else
+    {
+        // console.log(textArrayIndex);
+        textArrayIndex++;
+        // console.log(textArrayIndex);
+        if (textArrayIndex >= textArray.length) 
+        {
+            textArrayIndex = 0;
+        }
+        setTimeout(type,typingDelay + 100)
+    }
+}
+
+
+
+
+
+
+
+
+// ABOUT ME
+const about_me_typedTextSpan = document.querySelector('.about-me-typed-text');
+
+const about_me_textArray = [`Hey It's me Aman Gupta, a passionate web developer.
+ I am a hard-working, motivated & an amiable personality.
+ I love structure and order and I also stand for quality.
+ I like working in team, which enthusiast me to learn more. 
+ CSS & JavaScript is being my core of every superity, 
+ I don't limit within it.
+ Study and Research update me with latest technologies.
+ Being a student of Bachelor level, 
+ I want to spread the awareness of external 
+ research and practise..`];
+const about_me_typingDelay = 20;
+const about_me_newTextDelay = 120;
+let about_me_textArrayIndex = 0;
+let about_me_charIndex = 0;
+
+function about_me_type() {
+    if (about_me_charIndex < about_me_textArray[ about_me_textArrayIndex ].length)
+    {
+        about_me_typedTextSpan.textContent += about_me_textArray[ about_me_textArrayIndex ].charAt(about_me_charIndex);
+        about_me_charIndex++
+        setTimeout(about_me_type,about_me_typingDelay);
+    }
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded',() => {
+    setTimeout(type,newTextDelay);
+    setTimeout(about_me_type,about_me_newTextDelay);
+})
+</script>
+
+</html>
