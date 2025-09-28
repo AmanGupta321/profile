@@ -602,6 +602,10 @@ img {
     .cardButton.secondary {
       background-color: #6c757d;
     }
+    a{
+      color: white;
+      text-decoration: none;
+    }
 
     .cardButton.secondary:hover {
       background-color: #565e64;
