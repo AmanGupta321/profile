@@ -60,10 +60,6 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -602,6 +598,7 @@ img {
     .cardButton.secondary {
       background-color: #6c757d;
     }
+
     a{
       color: white;
       text-decoration: none;
